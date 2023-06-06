@@ -8,7 +8,9 @@
 
     <link rel="stylesheet" href="style.css">
 
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <style>
@@ -52,45 +54,107 @@
     .hoverButton:hover{
         background-color: gray;
     }
+
+    .font-Fira-Sans{
+        font-family: 'Fira Sans', sans-serif;
+    }
 </style>
 
 
 <body>
-    <div class="m-auto">
-        <div class="h1"><h1 class="font-sans font-bold text-4xl">Todo List App</h1></div>
-            <div class="w-full items-center flex">
-                <input class="border border-teal-500 rounded-lg w-10/12 h-15" type="text" id="add" placeholder="Write your task">
-                <div class="flex items-center w-2/12 float-right">
-                    <img class=" w-10 h-10 hover" src="../dist/img/icons8-add-50.png" alt="" onclick="addTask()">
-                    <p class="p">Add List</p>
-                </div>
+    <!-- Username -->
+    <div id="div-login" class="mt-60">
+        <h1 class="font-sans font-bold text-4xl mb-5">Todo List App</h1>
+        <input id="username" type="text" placeholder="Username" class="border border-gray-500 rounded-xl w-1/4">
+    </div>
+<!-- Task + Deadline  -->
+    <div class="flex hidden" id="div-task">
+        <!-- Left(Task) -->
+        <div class="w-3/4 m-auto " id="second-main">
+            <div class="border-b-2 border-b-gray-500">
+                <div class="h1"><h1 class="font-sans font-bold text-4xl">Todo List App</h1></div>
+                <div><h1 class="font-sans text-lg" id="helloUser"></h1></div>
+                <div><h1 class="font-sans text-lg">"The harder you work for something, the greater you'll feel when you achieve it." </h1></div>
             </div>
-                
+            <!-- Table -->
+            <div id="table">
+                <!-- <div class="mt-4">
+                    <div class="w-auto flex items-center">
+                        <h1 id="M 0" class="text-left text-xl font-bold rounded-xl font-Fira-Sans pl-5">Tìm lý do để sống</h1>
+                        <img src="../dist/img/icons8-remove-64.png" class="w-7 h-7" alt="">
+                    </div>
+                    <div>
+                        <table class="border-collapse border border-slate-300 table-fixed w-full ">
+                            <thead>
+                                <td class="border-collapse border border-slate-300 w-7/12 bg-slate-600 text-white" id="ClickTask 0">
+                                    <div class="flex">
+                                        <p class="text-center items-center m-auto">Task</p> 
+                                        <img src="../dist/img/icons8-down-50.png" class="w-7 h-7" alt="">
+                                    </div>
+                                </td>
+                                <td class="border-collapse border border-slate-300 w-2/12 bg-slate-600 text-white"><p>Status</p></td>
+                                <td class="border-collapse border border-slate-300 w-1/12 bg-slate-600 text-white"><p>Edit</p></td>
+                                <td class="border-collapse border border-slate-300 w-2/12 bg-slate-600 text-white"><p>Deadline</p></td>
+                            </thead> 
+                            <tbody id="Body 0">
+                                <tr class="border-b border-b-gray-200">
+                                    <td>
+                                        <input id="T 0 0" onchange="changeTask(this)" class="w-full border-none text-left" type="text" value="Chích bò ông Tư gần Thôn Văn Hóa">
+                                        <div class="flex items-center">
+                                            <img src="../dist/img/icons8-dead-64.png" alt="" class="w-5 h-5">
+                                            <p id="DR 0 0" class="text-xs">150 Hours 45 minutes left</p>
+                                            <span class="text-red-500 font-extrabold font-sans text-xs">MissingTask</span>
+                                        </div>
+                                    </td>
+                                    <td><p  id="S 0 0" class="Complete" onclick="changeComplete(this)">Complete</p></td>
+                                    <td>
+                                        <img class="w-6 h-6 p-0 hoverButton m-auto" src="../dist/img/icons8-remove-64.png" alt="">
+                                    </td>
+                                    <td>11:30PM <br> 22-12-2003</td>
+                                </tr>
 
-            <table class="border-collapse border border-slate-300 table-fixed w-11/12 ">
-                <thead>
-                    <td class="border-collapse border border-slate-300 w-1/12 text-center">
-                        <div class="flex m-auto justify-center items-center">
-                            <input class="m-auto" type="checkbox" id="all" onclick="selectAll()">
-                            <img class="w-6 m-auto h-6 nonePadding hoverButton hidden" id="removeAll" src="../dist/img/icons8-remove-64.png" alt="" onclick="removeAll()">
-                        </div>
+                           </tbody>
+                                <tr class="border-b-gray-500 w-full">
+                                    <td class="w-3/4">
+                                        <input onchange="changeTask(this)" class="w-full border-none text-left" type="text" placeholder="Add Part Task">
+                                    </td>
+                                    <td><input class="w-full text-xs" type="datetime-local" value="2023-06-03T15:05"></td>
+                                    <td><img src="../dist/img/icons8-add-50.png" alt="" class="w-7 m-auto hoverButton"></td>
+                                    <td></td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>  -->
+            </div>
 
-                    </td>
-                    <td class="border-collapse border border-slate-300 w-8/12"><p>Task Name</p></td>
-                    <td class="border-collapse border border-slate-300 w-2/12"><p>Status</p></td>
-                    <td class="border-collapse border border-slate-300 w-1/12"><p>Edit</p></td>
-                </thead>
-                <tbody>
-                    <!-- <tr>
-                        <td class="border-collapse border-r border-slate-300 w-1/12 text-center"><input type="checkbox"></td>
-                        <td><input onchange="changeTask(this)" class="w-full border-none" type="text" value="Chích bò ông Tư gần Thôn Văn Hóa"></td>
-                        <td class=""><p class="Complete" onclick="changeComplete(this)">Complete</p></td>
-                        <td class="flex m-auto mt-2 nonePadding w-fit"><img class="w-6 h-6 ml-2 mr-2 nonePadding hoverButton" src="../dist/img/icons8-write-64.png" alt=""><img class="w-6 h-6 mr-2 nonePadding hoverButton" src="../dist/img/icons8-remove-64.png" alt=""></td>
-                    </tr> -->
-               </tbody>
-            </table>
+            <!-- Add -->
+            
+
+                <div class="w-full items-center text-center mt-8">
+                    <input class="border border-teal-500 rounded-lg h-15 w-full" type="text" id="addMainTask" placeholder="Write your task">
+                </div>
+        </div>
+         <!-- Right (Deadline) -->
+         <div class="fixed right-1 bottom-1 flex items-center m-auto" onclick="openDead(this)">
+            <img class="w-8 h-8" src="../dist/img/icons8-dead-64.png" alt="">
+            <div class="relative text-white bg-red-500 w-3 h-3 m-auto items-center rounded-full" style="font-size: 9px; left: -37px; top: -14px;">
+                <p class="relative" style="top: -7px; left: -2px" id="count">0</p>
+            </div>
+
+        </div>
+        <!--  -->
+        <div class="w-1/4 border-red-600 border rounded-lg fixed right-1 bottom-1 bg-white hidden" onclick="closeDead(this)" id="DeadlineBoard">
+            <div class="w-full">
+                <h1 class="text-xl font-bold font-sans">Deadline</h1>
+            </div>
+            <div id="tableDeadLine">
+
+            </div>
+        </div>
     </div>
 </body>
 </html>
 
-<script src="index.js"></script>
+<script src="../dist/js/user.js"></script>
+
+<script src="../dist/js/task.js"></script>

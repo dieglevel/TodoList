@@ -1,5 +1,29 @@
 //STRUCT
+let user
 let temp=[]
+let mainTask=[]
+
+// temp = [
+//     {
+//         name: "Minh",
+//         complete: true
+//     },
+//     {
+//         name: "Minh",
+//         complete: true
+//     }
+// ]
+
+// mainTask = {"nameMainTask": "NULL",
+//             "childTask": temp}  
+
+
+
+// user = {"mainTask": [mainTask],
+//         username:"Maintaint"
+        
+//         }
+// let data = [user]
 //?? lS + i (ex: LS1, LS2)
 
 //EX
@@ -9,7 +33,7 @@ let temp=[]
 function checkDataIsNull(){
     temp = localStorage.getItem("test")
     if (temp == null){
-        localStorage.setItem("test", temp)
+        localStorage.setItem("test", JSON.stringify(data))
         return false
     }
     return true
@@ -84,7 +108,6 @@ function addToTable(i, name, complete){
     tr.appendChild(tdComplete(i,complete))
     tr.appendChild(tdEdit(i))
     doc.appendChild(tr)
-
 }
 //READ
 function loadData (){
@@ -99,7 +122,7 @@ function loadData (){
 
 function changeComplete(element){
     let char = element.getAttribute("id")
-    let id = char.split("LSCom")
+    let id = char.split("LSCom") // LSCom1
     if (element.textContent == "Complete"){
         element.innerHTML = "Not Complete"
         element.classList.remove("Complete")
@@ -116,8 +139,9 @@ function changeComplete(element){
         temp[id[1]].complete = true
         localStorage.setItem("test", JSON.stringify(temp))
     }
-//CHANGE TASK
 }
+//CHANGE TASK
+
 function changeTask(element){
     let char = element.getAttribute("id")
     let id = char.split("LSN")
@@ -214,7 +238,7 @@ function selectAll (){
 
 //checkValueAdd
 function checkValueAdd(name){
-    if (name == "" || name == null){
+    if (name.trim() == "" || name == null){
         return false
     }
     return true
